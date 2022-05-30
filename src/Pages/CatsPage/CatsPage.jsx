@@ -7,7 +7,39 @@ import Loader from '../../UI/Loader/Loader';
 //css modules
 import cl from './CatsPage.module.css';
 
-function CatsPage({ isLoading, catsData, catsError, favoriteToggle, lastElement, fetchCats, page }) {
+//API
+import CatsInfo from '../../API/CatsInfo';
+
+//hooks
+import { useContext, useRef, useEffect } from 'react';
+import { useFetching } from './../../hooks/useFetching';
+import { useObserver } from './../../hooks/useObserver';
+
+//context
+import { AuthContext } from './../../context/index';
+
+
+function CatsPage({ favoriteToggle }) {
+    const lastElement = useRef();
+    
+    
+    const {catsData , setCatsData} = useContext(AuthContext);
+    const {page, setPage} = useContext(AuthContext);
+    
+    const [fetchCats, isLoading, catsError] = useFetching(async (page) => {
+        const catsInfo = await CatsInfo.getAll(page);
+        setCatsData([...catsData, ...catsInfo]);
+    });
+  
+    useEffect(() => {
+      if(page === 0) return;
+      fetchCats(page);
+    }, [page]);
+  
+    useObserver(lastElement, isLoading, () => {
+        setPage(page + 1);
+    })
+
     return (
         <div>
             <div className={cl.content}>
@@ -19,7 +51,8 @@ function CatsPage({ isLoading, catsData, catsError, favoriteToggle, lastElement,
                 }
             </div>
             <div ref={lastElement} className={cl.observer}></div>
-            <div className={cl.wrapp}>{isLoading ? <Loader /> : <button className={cl.btnMore} onClick={() => fetchCats(page)}>Загрузить ещё</button>}</div>
+            {/* <button className={cl.btnMore} onClick={() => fetchCats(page)}>Загрузить ещё</button> */}
+            <div className={cl.wrapp}>{isLoading ? <Loader /> : ''}</div>
         </div>
     );
 }

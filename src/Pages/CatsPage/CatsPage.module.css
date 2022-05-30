@@ -15,7 +15,7 @@
     width: 100px;
 }
 
-.btnMore {
+/* .btnMore {
     color: white;
     font-size: 18px;
     font-weight: 400;
@@ -31,7 +31,7 @@
 .btnMore:hover {
     transition: all .5s;
     background-color: #1E88E5;
-}
+} */
 
 .wrapp {
     width: 100%;
