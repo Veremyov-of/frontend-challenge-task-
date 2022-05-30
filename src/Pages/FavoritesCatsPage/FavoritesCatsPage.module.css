@@ -1,0 +1,9 @@
+.content {
+    padding: 0 5px;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}

@@ -1,0 +1,41 @@
+.content {
+    padding: 0 5px;
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.observer {
+    margin-top: 50px;
+    opacity: 0;
+    height: 20px;
+    width: 100px;
+}
+
+.btnMore {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    transition: all .5s;
+    cursor: pointer;
+    border: none;
+    background-color: #2196F3;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding: 20px 30px;
+}
+
+.btnMore:hover {
+    transition: all .5s;
+    background-color: #1E88E5;
+}
+
+.wrapp {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
