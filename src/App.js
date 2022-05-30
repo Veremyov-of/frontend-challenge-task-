@@ -52,6 +52,9 @@ function App() {
       return item;
     }));
   }
+  function test() {
+    console.log('testContext');
+  }
 
   return (
     <div className="App">
