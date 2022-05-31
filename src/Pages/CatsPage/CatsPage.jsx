@@ -19,12 +19,13 @@ import { useObserver } from './../../hooks/useObserver';
 import { AuthContext } from './../../context/index';
 
 
-function CatsPage({ favoriteToggle }) {
+function CatsPage({}) {
     const lastElement = useRef();
     
     
     const {catsData , setCatsData} = useContext(AuthContext);
     const {page, setPage} = useContext(AuthContext);
+
     
     const [fetchCats, isLoading, catsError] = useFetching(async (page) => {
         const catsInfo = await CatsInfo.getAll(page);
@@ -47,7 +48,7 @@ function CatsPage({ favoriteToggle }) {
                     <h1>Произошла ошибка {catsError}</h1> 
                 }
                 {catsData.map((item) => 
-                    <CardCat key={item.id} urlImg={item.url} favorite={item.favorite} id={item.id} favoriteToggle={favoriteToggle}/>)
+                    <CardCat key={item.id} urlImg={item.url} favorite={item.favorite} id={item.id}/>)
                 }
             </div>
             <div ref={lastElement} className={cl.observer}></div>

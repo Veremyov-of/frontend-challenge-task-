@@ -11,7 +11,6 @@ import Navbar from "./components/Navbar/Navbar";
 //context
 import { AuthContext } from './context';
 
-
 function App() {
 
   const [catsData, setCatsData] = useState([]);
@@ -33,12 +32,13 @@ function App() {
       setCatsData,
       page,
       setPage,
+      favoriteToggle,
     }}>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<CatsPage favoriteToggle={favoriteToggle} />} />
-          <Route path="/favorites" element={<FavoritesCatsPage favoriteToggle={favoriteToggle}/>} />
+          <Route path="/" element={<CatsPage  />} />
+          <Route path="/favorites" element={<FavoritesCatsPage />} />
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
