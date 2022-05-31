@@ -34,7 +34,7 @@ function App() {
       setPage,
       favoriteToggle,
     }}>
-      <BrowserRouter basename='/frontend-challenge-task-'>
+      <BrowserRouter basename='/frontend-challenge-task-/'>
         <Navbar />
         <Routes>
           <Route path="/" element={<CatsPage  />} />
