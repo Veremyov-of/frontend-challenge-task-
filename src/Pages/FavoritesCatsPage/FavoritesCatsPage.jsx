@@ -12,6 +12,7 @@ import { AuthContext } from "../../context";
 
 function FavoritesCatsPage({  }) {
     const {catsData, setCatsData} = useContext(AuthContext);
+    
     return (
         <div className={cl.content}>
             {catsData.map((item) => {
